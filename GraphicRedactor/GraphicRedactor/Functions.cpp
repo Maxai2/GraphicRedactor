@@ -545,7 +545,7 @@ void triangle(short row, short col, int color, int symbol)
 									cout << char(symbol);
 						}
 					}
-					break;
+				break;
 
 				case 2:
 					for (short i = 0; i < height; i++)
@@ -559,25 +559,47 @@ void triangle(short row, short col, int color, int symbol)
 									cout << char(symbol);
 						}
 					}
-					break;
+				break;
 
 				case 4:
-					for (short i = 0; i < height * 2 - 1; i++)//i = row - (height - 1); i <= row + (height - 1);
+					for (short i = 0; i < height * 2 - 1; i++)
 					{
 						for (short j = col; j < col + height; j++)
 						{
-							SetConsoleCursorPosition(h, { j, row - (height - 1) + i }); //i  
+							SetConsoleCursorPosition(h, { j, row - (height - 1) + i });
 
-																						//if (3 < row && row < 21 && 12 < j && j < 60)
-																						//{
-							if (j == col + height - 1 || i == (height * 2 - 1) / 2 && j == col)
-								cout << char(symbol);
-							//								else if (j == col + 1 + i)
-							//									cout << char(symbol);
-							//							}
+							if (3 < row && row < 21 && 12 < j && j < 60)
+							{
+								if (j == col + height - 1 || i == (height * 2 - 1) / 2 && j == col)
+									cout << char(symbol);
+								else if (0 < i && i < (height * 2 - 1) / 2 && j == col + height - 1 - i)
+									cout << char(symbol);
+								else if ((height * 2 - 1) / 2 < i && i < height * 2 && j == col + (i - height + 1))
+									cout << char(symbol);
+							}
 						}
 					}
-					break;
+				break;
+
+				case 6:
+					for (short i = 0; i < height * 2 - 1; i++)
+					{
+						for (short j = col - height; j <= col; j++)
+						{
+							SetConsoleCursorPosition(h, { j, row - (height - 1) + i });
+
+							//if (3 < row && row < 21 && 12 < j && j < 60)
+							//{
+								if (j == col - height || i == row && j == col)
+									cout << char(symbol);
+/*								else if (0 < i && i < (height * 2 - 1) / 2 && j == col + height - 1 - i)
+									cout << char(symbol);
+								else if ((height * 2 - 1) / 2 < i && i < height * 2 && j == col + (i - height + 1))
+									cout << char(symbol);
+							}*/
+						}
+					}
+				break;
 
 				}
 				done = false;
