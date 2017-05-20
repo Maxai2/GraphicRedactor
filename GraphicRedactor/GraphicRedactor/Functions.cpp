@@ -584,19 +584,19 @@ void triangle(short row, short col, int color, int symbol)
 				case 6:
 					for (short i = 0; i < height * 2 - 1; i++)
 					{
-						for (short j = col - height; j <= col; j++)
+						for (short j = col - height; j < col; j++)
 						{
 							SetConsoleCursorPosition(h, { j, row - (height - 1) + i });
 
-							//if (3 < row && row < 21 && 12 < j && j < 60)
-							//{
-								if (j == col - height || i == row && j == col)
+							if (3 < row && row < 21 && 12 < j && j < 60)
+							{
+								if (j == col - height || i == (height * 2 - 1) / 2 && j == col - 1)
 									cout << char(symbol);
-/*								else if (0 < i && i < (height * 2 - 1) / 2 && j == col + height - 1 - i)
+								else if (0 < i && i < (height * 2 - 1) / 2 && j == col - height + i)
 									cout << char(symbol);
-								else if ((height * 2 - 1) / 2 < i && i < height * 2 && j == col + (i - height + 1))
+								else if ((height * 2 - 1) / 2 < i && i < height * 2 && j == col - (i - height + 2))
 									cout << char(symbol);
-							}*/
+							}
 						}
 					}
 				break;
