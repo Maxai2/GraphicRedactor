@@ -10,6 +10,7 @@ HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 void color()
 {
 	SetConsoleCursorPosition(h, { 12, 0 });
+	SetConsoleTextAttribute(h, 7);
 	cout << "Colors: ";
 	for (int i = 1; i < 16; i++)
 	{
@@ -193,6 +194,7 @@ short dRow, dCol;
 
 void press()
 {
+	SetConsoleTextAttribute(h, 7);
 	SetConsoleCursorPosition(h, { 63, 3 });
 	cout << "Press to: ";
 	SetConsoleCursorPosition(h, { 63, 4 });
@@ -240,6 +242,7 @@ void line(short row, short col, int color, int symbol)
 	short sRow = 0, sCol = 0, fRow = 0, fCol = 0;
 
 	menuClr();
+	SetConsoleTextAttribute(h, 7);
 
 	while (true)
 	{
@@ -368,6 +371,7 @@ void square(short row, short col, int color, int symbol)
 
 	int width = 0, length = 0, key;
 	bool done = false;
+	SetConsoleTextAttribute(h, 7);
 
 	while (true)
 	{
@@ -467,6 +471,7 @@ void triangle(short row, short col, int color, int symbol)
 		SetConsoleCursorPosition(h, { 65, 7 });
 		cout << "v";
 
+		SetConsoleTextAttribute(h, 7);
 		SetConsoleCursorPosition(h, { 14, 2 });
 		cout << "Select the direction of triangle";
 
