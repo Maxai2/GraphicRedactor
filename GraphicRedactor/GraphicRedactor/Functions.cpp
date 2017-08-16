@@ -625,6 +625,12 @@ void triangle(short row, short col, int color, int symbol)
 	}
 }
 
+void coord(int x, int y)
+{
+	SetConsoleCursorPosition(h, { 12, 13 });
+
+}
+
 void draw()
 {
 	clear();
@@ -691,5 +697,8 @@ void draw()
 		}
 		else if (key == 27) // esc
 			break;
+
+		coord(row, col);
+
 	}
 }
